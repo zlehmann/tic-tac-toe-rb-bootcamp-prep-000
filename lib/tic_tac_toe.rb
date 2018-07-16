@@ -82,6 +82,7 @@ def won?(board)
   winning_array = []
   WIN_COMBINATIONS.each do |wincombo|
     if board[wincombo[0]] == "X" && board[wincombo[1]] == "X" && board[wincombo[2]] == "X"
+<<<<<<< HEAD
       winning_array = wincombo
     elsif board[wincombo[0]] == "O" && board[wincombo[1]] == "O" && board[wincombo[2]] == "O"
       winning_array = wincombo
@@ -95,6 +96,16 @@ def won?(board)
   if winning_array == nil
     return FALSE
   end
+=======
+      return wincombo
+    elsif board[wincombo[0]] == "O" && board[wincombo[1]] == "O" && board[wincombo[2]] == "O"
+      return wincombo
+    else
+      winning_array = nil
+    end
+  end
+  return winning_array
+>>>>>>> 344f7c6792a2f287e1c8e91f78062038d3527992
 end
 
 def full?(board)
@@ -105,7 +116,11 @@ def full?(board)
 end
 
 def draw?(board)
+<<<<<<< HEAD
   if won?(board) == TRUE
+=======
+  if won?(board) != nil
+>>>>>>> 344f7c6792a2f287e1c8e91f78062038d3527992
     return FALSE
   elsif full?(board) == TRUE
     return TRUE
@@ -115,7 +130,11 @@ def draw?(board)
 end
 
 def over?(board)
+<<<<<<< HEAD
   if won?(board) == TRUE
+=======
+  if won?(board) != nil
+>>>>>>> 344f7c6792a2f287e1c8e91f78062038d3527992
     return TRUE
   elsif draw?(board) == TRUE
     return TRUE
@@ -141,6 +160,7 @@ end
 def play(board)
   until over?(board) == TRUE do
     turn(board)
+<<<<<<< HEAD
     won?(board)
   end
   
@@ -149,6 +169,14 @@ def play(board)
     puts "Congratulations #{winning_player}!"
   elsif draw?(board) == true
     puts "Cat's Game!"
+=======
+    if won?(board) != nil
+      winning_player = winner(board)
+      puts "Congratulations #{winning_player}!"
+    elsif draw?(board) == true
+      puts "Cat's Game!"
+    end
+>>>>>>> 344f7c6792a2f287e1c8e91f78062038d3527992
   end
 end
     
